@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found Documents Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📄 Lost & Found Documents Hub</h1>
+        <p>Report lost or found IDs, permits, and more—reuniting people with their documents!</p>
+    </header>
+
+    <main>
+        <!-- Tabs for Lost/Found -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('lost')">I Lost a Document</button>
+            <button class="tab-button" onclick="openTab('found')">I Found a Document</button>
+        </div>
+
+        <!-- Lost Document Form -->
+        <div id="lost" class="tab-content">
+            <h2>Report a Lost Document</h2>
+            <form>
+                <input type="text" placeholder="Document Number (e.g., ID123456)" required>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone (Optional)">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Found Document Form -->
+        <div id="found" class="tab-content" style="display:none;">
+            <h2>Report a Found Document</h2>
+            <form>
+                <input type="text" placeholder="Document Number (e.g., ID123456)" required>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email" required>
+                <label class="reward-label">
+                    <input type="checkbox"> Offer a reward (optional)
+                </label>
+                <button type="submit">Submit</button>
+                <!-- Inside the lost form (after phone input) -->
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Lost & Found Documents Hub</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
