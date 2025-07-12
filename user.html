@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DocuFinder – Dashboard</title>
+  <link rel="stylesheet" href="user.css" />
+</head>
+<body>
+
+  <!-- 🔵 TOP BAR -->
+  <header class="title-bar">
+    <h1 class="logo" onclick="goToVisitorHome()">DocuFinder</h1>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- 🟢 MAIN DASHBOARD -->
+  <main class="dashboard">
+    <h2>Welcome back, Beni! What do you want to do?</h2>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search by Name, ID, or Document Type">
+      <button>🔍 Search</button>
+    </div>
+
+    <!-- 🔘 DASHBOARD BUTTONS -->
+    <div class="user-actions">
+      <button onclick="showSection('mySubmissions')">🧾 My Submissions</button>
+      <button onclick="showSection('newLostForm')">➕ New Lost Report</button>
+      <button onclick="showSection('myFoundDocs')">💼 My Found Docs</button>
+      <button onclick="showSection('newFoundForm')">➕ Report Found Doc</button>
+      <button onclick="showSection('chatSection')">💬 My Chats</button>
+      <button onclick="showSection('notificationSection')">🔔 Notifications (2)</button>
+    </div>
+
+    <p class="tip">📈 Tip: Keep checking back. We update matches!</p>
+
+    <!-- 🧾 My Submissions Section -->
+    <section id="mySubmissions" class="page-section hidden">
+      <h3>📋 My Submissions</h3>
+      <p>You have submitted 2 lost documents and 1 found document.</p>
+    </section>
+
+    <!-- 📤 New Lost Form Section -->
+    <section id="newLostForm" class="page-section hidden">
+      <h3>➕ New Lost Document Report</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="text" placeholder="Location Last Seen" required />
+        <input type="text" placeholder="Document Type (ID, Passport...)" required />
+        <input type="text" placeholder="Name on Document" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <textarea placeholder="Describe situation..." rows="4"></textarea>
+        <button type="submit">Submit Lost Report</button>
+      </form>
+    </section>
+
+    <!-- 🧳 New Found Form Section -->
+    <section id="newFoundForm" class="page-section hidden">
+      <h3>➕ Report Found Document</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="text" placeholder="Where It Was Found" required />
+        <input type="text" placeholder="Document Type" required />
+        <input type="text" placeholder="Name on Document" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <textarea placeholder="Describe how you found it..." rows="4"></textarea>
+        <button type="submit">Submit Found Report</button>
+      </form>
+    </section>
+
+    <!-- 💼 My Found Documents -->
+    <section id="myFoundDocs" class="page-section hidden">
+      <h3>💼 My Found Documents</h3>
+      <p>You have reported 1 document as found.</p>
+    </section>
+
+    <!-- 💬 Chat Section -->
+    <section id="chatSection" class="page-section hidden">
+      <h3>💬 My Chats</h3>
+      <div class="chat-box">
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg left">Hi, I found your ID!</div>
+          <div class="msg right">Thanks! Where can I get it?</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="chatInput" placeholder="Type a message..." />
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔔 Notifications Section -->
+    <section id="notificationSection" class="page-section hidden">
+      <h3>🔔 Notifications</h3>
+      <ul class="notification-list">
+        <li>✅ A found report matches your lost document (ID1234).</li>
+        <li>📥 New message from John Doe.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 📘 FOOTER -->
+  <footer>
+    <a href="#">About</a> | 
+    <a href="#">Privacy</a> | 
+    <a href="#">Contact</a> | 
+    <a href="#">Help</a>
+  </footer>
+
+  <!-- 🧠 JAVASCRIPT FOR FUNCTIONALITY -->
+  <script>
+    // 🌐 Go back to visitor homepage
+    function goToVisitorHome() {
+      window.location.href = "visitor.html";
+    }
+
+    // 🔒 Logout and go back to visitor homepage
+    function logout() {
+      alert("Logging out...");
+      window.location.href = "visitor.html";
+    }
+
+    // 🧭 Section toggler (used by all dashboard buttons)
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(section => {
+        section.classList.add('hidden'); // Hide all
+      });
+      document.getElementById(sectionId).classList.remove('hidden'); // Show target
+    }
+
+    // ✉️ Send a new chat message
+    function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const message = input.value.trim();
+      if (message !== "") {
+        const chatBox = document.getElementById("chatMessages");
+        const msgDiv = document.createElement("div");
+        msgDiv.classList.add("msg", "right");
+        msgDiv.textContent = message;
+        chatBox.appendChild(msgDiv);
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>

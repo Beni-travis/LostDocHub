@@ -1,31 +1,65 @@
-function openTab(tabName) {
-    // Hide all tab contents
-    const tabContents = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].style.display = "none";
-    }
-
-    // Remove 'active' class from all buttons
-    const tabButtons = document.getElementsByClassName("tab-button");
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].classList.remove("active");
-    }
-
-    // Show the selected tab and mark button as active
-    document.getElementById(tabName).style.display = "block";
-    event.currentTarget.classList.add("active");
+// ----------------------
+// 🌐 Section Switcher
+// ----------------------
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.page-section');
+  sections.forEach(sec => {
+    sec.classList.add('hidden');
+    sec.classList.remove('active');
+  });
+  document.getElementById(sectionId).classList.remove('hidden');
+  document.getElementById(sectionId).classList.add('active');
 }
-// ===== LOCAL STORAGE ===== //
-// Load saved data on page load
-window.addEventListener('load', () => {
-    const savedLost = JSON.parse(localStorage.getItem('lostDocs')) || [];
-    const savedFound = JSON.parse(localStorage.getItem('foundDocs')) || [];
-    lostDocs.push(...savedLost); // Merge with existing array
-    foundDocs.push(...savedFound);
-});
 
-// Save data on form submission (modify existing listeners)
-document.querySelector('#lost form').addEventListener('submit', function(e) {
-    // ... (existing code)
-    localStorage.setItem('lostDocs', JSON.stringify(lostDocs)); // New
-});
+// ----------------------
+// 🔐 Login Functions
+// ----------------------
+
+// Show login modal
+function showLogin() {
+  document.getElementById("loginModal").classList.remove("hidden");
+  document.getElementById("signupModal").classList.add("hidden");
+}
+
+// Hide login modal
+function closeLoginModal() {
+  document.getElementById("loginModal").classList.add("hidden");
+}
+
+// Simulate login (you’ll replace with real validation later)
+function fakeLogin() {
+  window.location.href = "user.html";
+}
+
+// ----------------------
+// 🆕 Signup Functions
+// ----------------------
+
+// ✅ Fix: Show signup modal from nav bar
+function showSignup() {
+  document.getElementById("signupModal").classList.remove("hidden");
+  document.getElementById("loginModal").classList.add("hidden");
+}
+
+// Switch from login to signup
+function switchToSignup() {
+  document.getElementById("loginModal").classList.add("hidden");
+  document.getElementById("signupModal").classList.remove("hidden");
+}
+
+// Switch from signup back to login
+function switchToLogin() {
+  document.getElementById("signupModal").classList.add("hidden");
+  document.getElementById("loginModal").classList.remove("hidden");
+}
+
+// Hide signup modal
+function closeSignupModal() {
+  document.getElementById("signupModal").classList.add("hidden");
+}
+
+// Simulate signup
+function fakeSignup() {
+  alert("Signup successful! Redirecting to your dashboard...");
+  window.location.href = "user.html";
+}

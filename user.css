@@ -1,0 +1,211 @@
+/* ✨ Global Page Settings */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* 🔷 Header Section */
+.title-bar {
+  background-color: #003366;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Style */
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Navigation Links */
+nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* 🧭 Main Dashboard Container */
+.dashboard {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+  margin: 1rem auto;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  background-color: #006699;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #004d66;
+}
+
+/* 🔘 User Action Buttons Grid */
+.user-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.user-actions button {
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #005580;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-actions button:hover {
+  background-color: #003f5c;
+}
+
+/* 💡 Tip Text */
+.tip {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #333;
+}
+
+/* 📘 Footer Section */
+footer {
+  text-align: center;
+  background-color: #003366;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* 📄 Toggleable Sections (hidden by default) */
+.page-section {
+  display: none;
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* When section is active (JavaScript adds/removes hidden class) */
+.page-section:not(.hidden) {
+  display: block;
+}
+
+/* 💬 Chat Box Design */
+.chat-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Chat Message Area */
+.chat-messages {
+  height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Left Message (received) */
+.msg.left {
+  background-color: #e0f7fa;
+  color: #004d40;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 5px 0;
+  text-align: left;
+  max-width: 70%;
+}
+
+/* Right Message (sent) */
+.msg.right {
+  background-color: #d1c4e9;
+  color: #4a148c;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 5px 0;
+  text-align: right;
+  margin-left: auto;
+  max-width: 70%;
+}
+
+/* Message Input */
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.chat-input button {
+  padding: 0.5rem 1rem;
+  background-color: #005580;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #003f5c;
+}
+
+/* 📢 Notification List */
+.notification-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notification-list li {
+  background-color: #e0f2f1;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-left: 5px solid #00796b;
+  border-radius: 4px;
+  text-align: left;
+  color: #004d40;
+  font-size: 0.95rem;
+}

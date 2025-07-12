@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DocuFinder - Visitor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Title bar -->
+  <header class="title-bar">
+    <h1 class="logo">DocuFinder</h1>
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('lost')">Lost</a>
+      <a onclick="showSection('found')">Found</a>
+      <a onclick="showLogin()">Login</a> |
+      <a onclick="showSignup()">Signup</a>
+    </nav>
+  </header>
+  <!-- Login Modal -->
+<div id="loginModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeLoginModal()">&times;</span>
+    <h2>Login to DocuFinder</h2>
+    <input type="text" placeholder="Email / Username / Phone" />
+    <input type="password" placeholder="Password" />
+    <button onclick="fakeLogin()">Login</button>
+    <p>New here? <a href="#" onclick="switchToSignup()">Sign up</a></p>
+  </div>
+</div>
+<!-- Sign Up Modal -->
+<div id="signupModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeSignupModal()">&times;</span>
+    <h2>Create an Account</h2>
+    <input type="text" placeholder="Full Name" />
+    <input type="email" placeholder="Email Address" />
+    <input type="text" placeholder="Phone Number" />
+    <input type="password" placeholder="Create Password" />
+    <button onclick="fakeSignup()">Sign Up</button>
+    <p>Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+  </div>
+</div>
+
+
+
+  <!-- Home Section -->
+  <section id="home" class="page-section active">
+    <div class="welcome">
+      <h2>Find your lost document or help someone find theirs</h2>
+    </div>
+    <div class="search-section">
+      <input type="text" placeholder="Search document type, name, or keyword..." />
+      <button>Search</button>
+    </div>
+    <div class="track-section">
+      <h3>Track Status</h3>
+      <input type="text" placeholder="Enter your document ID number" />
+      <button>Check Status</button>
+    </div>
+    <div class="learn-more">
+      <h3>Learn More</h3>
+      <p>DocuFinder connects people who lost documents with those who found them — fast, safe, and easy.</p>
+      <button onclick="alert('More details coming soon!')">Read More</button>
+    </div>
+  </section>
+
+  <!-- Lost Section -->
+  <section id="lost" class="page-section hidden">
+    <h2>Report Lost Document</h2>
+    <form>
+      <input type="text" placeholder="Your Full Name" required />
+      <input type="text" placeholder="Location" required />
+      <input type="text" placeholder="Document Type (e.g. ID, Passport)" required />
+      <input type="text" placeholder="Name on Document" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="file" accept="image/*" />
+      <textarea placeholder="Describe your situation..." rows="4"></textarea>
+      <button type="submit">Submit Lost Report</button>
+    </form>
+  </section>
+
+  <!-- Found Section -->
+  <section id="found" class="page-section hidden">
+    <h2>Report Found Document</h2>
+    <form>
+      <input type="text" placeholder="Your Full Name" required />
+      <input type="text" placeholder="Location" required />
+      <input type="text" placeholder="Document Type (e.g. ID, Passport)" required />
+      <input type="text" placeholder="Name on Document" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="file" accept="image/*" />
+      <textarea placeholder="Describe where/how it was found..." rows="4"></textarea>
+      <button type="submit">Submit Found Report</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DocuFinder. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
